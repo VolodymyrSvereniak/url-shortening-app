@@ -61,6 +61,7 @@ export default {
         list-style: none;
         color: hsl(257, 7%, 63%);
         font-weight: 700;
+        cursor: pointer;
       }
     }
   }
@@ -68,7 +69,7 @@ export default {
   .auth-group {
     display: flex;
     justify-content: space-between;
-    gap: 1.25rem;
+    gap: 20px;
 
     .auth-button {
       border: none;
@@ -77,12 +78,19 @@ export default {
       color: hsl(257, 7%, 63%);
       cursor: pointer;
       font-size: 18px;
+      outline: none;
 
       &.active {
         background-color: hsl(180, 66%, 49%);
-        padding: 10px 20px;
+        transition: background-color 0.5s ease-out;
+        padding: 10px 25px;
         border-radius: 20px;
         color: white;
+
+        &:hover {
+          background-color: hsl(180, 55%, 67%);
+          transition: none;
+        }
       }
     }
   }
