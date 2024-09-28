@@ -1,11 +1,11 @@
 <template>
-  <section class="wrapper">
-    <div class="description">
-      <h1>More than just shorter links</h1>
-      <p>
+  <section class="container">
+    <div class="wrapper">
+      <h1 class="title">More than just shorter links</h1>
+      <p class="description">
         Build your brand’s recognition and get detailed insights on how your links are performing.
       </p>
-      <button>Get Started</button>
+      <button class="submit-button">Get Started</button>
     </div>
   </section>
 </template>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.container {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -27,28 +27,26 @@ export default {
   background-repeat: no-repeat;
   background-position: 100% 30%;
 
-  .description {
+  .wrapper {
     padding-top: 100px;
     width: 50%;
 
-    h1 {
+    .title {
       font-size: 80px;
       line-height: 1.2;
     }
 
-    p {
+    .description {
       width: 500px;
       color: hsl(257, 7%, 63%);
       font-weight: 500;
     }
 
-    button {
+    .submit-button {
       border: none;
       margin-top: 3.125rem;
       font-weight: 700;
-      color: hsl(257, 7%, 63%);
       cursor: pointer;
-      font-size: 18px;
       background-color: hsl(180, 66%, 49%);
       padding: 15px 30px;
       border-radius: 20px;

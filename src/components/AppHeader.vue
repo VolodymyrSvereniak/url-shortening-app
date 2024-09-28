@@ -31,7 +31,7 @@
 export default {
   data() {
     return {
-      isActive: null
+      isActive: 'SignUp'
     }
   },
   methods: {
@@ -77,8 +77,11 @@ export default {
       font-weight: 700;
       color: hsl(257, 7%, 63%);
       cursor: pointer;
-      font-size: 18px;
       outline: none;
+
+      &:hover {
+        color: hsl(180, 66%, 49%);
+      }
 
       &.active {
         background-color: hsl(180, 66%, 49%);
