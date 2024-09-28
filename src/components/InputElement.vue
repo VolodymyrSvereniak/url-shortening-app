@@ -14,6 +14,7 @@ export default {}
 <style lang="scss" scoped>
 .container {
   display: flex;
+  width: 80vw;
   height: 9.375rem;
   position: relative;
   left: 10%;

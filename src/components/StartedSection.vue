@@ -29,6 +29,7 @@ export default {
 
   .wrapper {
     padding-top: 100px;
+    height: 100vh;
     width: 50%;
 
     .title {

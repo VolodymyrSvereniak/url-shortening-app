@@ -8,8 +8,8 @@ export default {}
 
 <style lang="scss" scoped>
 div {
-  background-color: aqua;
+  background-color: hsl(0, 0%, 75%);
   height: 100vh;
-  width: 85vw;
+  width: 100vw;
 }
 </style>

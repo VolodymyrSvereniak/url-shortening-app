@@ -3,18 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 18px;
-
   font-family: 'Poppins', sans-serif;
 }
 
 body {
   font-weight: normal;
   max-width: 1440px;
-  width: 85vw;
   height: 100vh;
-  /* margin: 0 auto; */
-  padding: 0 7%;
-  margin-top: 2.1875rem;
   overflow-x: hidden;
 }
-
