@@ -6,6 +6,7 @@
     </div>
     <input-element />
     <statistics-section />
+    <c-t-a-section/>
   </div>
 </template>
 
@@ -14,13 +15,15 @@ import AppHeader from '@/components/AppHeader.vue'
 import StartedSection from '@/components/StartedSection.vue'
 import InputElement from '@/components/InputElement.vue'
 import StatisticsSection from './components/StatisticsSection.vue'
+import CTASection from './components/CTASection.vue'
 
 export default {
   components: {
     AppHeader,
     StartedSection,
     InputElement,
-    StatisticsSection
+    StatisticsSection,
+    CTASection
   }
 }
 </script>

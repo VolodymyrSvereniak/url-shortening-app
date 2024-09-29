@@ -20,7 +20,7 @@ export default {}
   position: relative;
   left: 10%;
   bottom: -4.6875rem;
-  background-color: hsl(255, 11%, 22%);
+  background-color: hsl(257, 27%, 26%);
   border-radius: 10px;
   background-image: url('../assets/images/bg-shorten-desktop.svg');
   background-size: cover;
