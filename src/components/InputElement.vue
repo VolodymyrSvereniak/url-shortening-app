@@ -16,12 +16,14 @@ export default {}
   display: flex;
   width: 80vw;
   height: 9.375rem;
+  z-index: 111;
   position: relative;
   left: 10%;
   bottom: -4.6875rem;
   background-color: hsl(255, 11%, 22%);
   border-radius: 10px;
   background-image: url('../assets/images/bg-shorten-desktop.svg');
+  background-size: cover;
 
   .wrapper {
     display: flex;

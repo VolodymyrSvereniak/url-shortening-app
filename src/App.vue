@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <div class="header-wrapper">
       <app-header />
       <started-section />
@@ -26,9 +26,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-wrapper {
-  width: 80vw;
-  height: 100vh;
-  margin: 2.1875rem 4rem;
+.app {
+  width: 100vw;
+
+  .header-wrapper {
+    width: 80vw;
+    height: 100vh;
+    margin: 2.1875rem 4rem;
+  }
 }
 </style>
