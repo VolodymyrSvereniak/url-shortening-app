@@ -66,6 +66,10 @@ export default {
         color: hsl(257, 7%, 63%);
         font-size: 14px;
         cursor: pointer;
+
+        &:hover {
+          color: hsl(180, 66%, 49%);
+        }
       }
     }
   }
@@ -85,6 +89,11 @@ export default {
         width: 100%;
         height: auto;
         cursor: pointer;
+
+        &:hover {
+          filter: invert(50%);
+          transform: scale(1.2);
+        }
       }
     }
   }

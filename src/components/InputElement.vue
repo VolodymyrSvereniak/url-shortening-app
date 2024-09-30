@@ -1,10 +1,12 @@
 <template>
-  <form class="container">
-    <div class="wrapper">
-      <input class="url-input" type="text" placeholder="Shorten a link here..." />
-      <button class="submit-button" type="submit">Shorten It!</button>
-    </div>
-  </form>
+  <div>
+    <form class="form-container">
+      <div class="wrapper">
+        <input class="url-input" type="text" placeholder="Shorten a link here..." />
+        <button class="submit-button" type="submit">Shorten It!</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -12,7 +14,7 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.container {
+.form-container {
   display: flex;
   width: 80vw;
   height: 9.375rem;

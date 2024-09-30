@@ -62,6 +62,10 @@ export default {
         color: hsl(257, 7%, 63%);
         font-weight: 700;
         cursor: pointer;
+
+        &:hover {
+          color: black;
+        }
       }
     }
   }
