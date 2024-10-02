@@ -1,8 +1,14 @@
 <template>
   <div>
-    <form class="form-container">
+    <form class="form-container" @submit.prevent="createNewUrl">
       <div class="wrapper">
-        <input class="url-input" type="text" placeholder="Shorten a link here..." />
+        <input
+          :value="inputValue"
+          @input="updateInput"
+          class="url-input"
+          type="text"
+          placeholder="Shorten a link here..."
+        />
         <button class="submit-button" type="submit">Shorten It!</button>
       </div>
     </form>
@@ -10,7 +16,22 @@
 </template>
 
 <script>
-export default {}
+import { mapState, mapMutations } from 'vuex'
+
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    ...mapMutations('shortenUrl', ['setInputValue', 'createNewUrl']),
+    updateInput(event) {
+      this.setInputValue(event.target.value)
+    }
+  },
+  computed: {
+    ...mapState('shortenUrl', ['inputValue']),
+  },
+}
 </script>
 
 <style lang="scss" scoped>

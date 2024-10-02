@@ -2,10 +2,10 @@
   <div class="statistics-container">
     <div
       class="wrapper"
-      :class="index === 1 ? 'middle-block' : ''"
-      :style="{ marginTop: 60 * index + 'px' }"
       v-for="(statistic, index) in statistics"
       :key="statistic.title"
+      :class="index === 1 ? 'middle-block' : ''"
+      :style="{ marginTop: 60 * index + 'px' }"
     >
       <div class="image-wrapper">
         <img class="image" :src="statistic.img" :alt="statistic.img" />
@@ -44,17 +44,17 @@ export default {
       position: absolute;
       right: 100%;
       bottom: 60%;
-      width: 34%;
-      border: 6px solid #2ccfd0;
+      width: 35%;
+      border: 4px solid #2ccfd0;
     }
 
     &::after {
       content: '';
       position: absolute;
-      bottom: 60%;
       left: 100%;
-      width: 34.5%;
-      border: 6px solid #2ccfd0;
+      bottom: 60%;
+      width: 35%;
+      border: 4px solid #2ccfd0;
     }
   }
 

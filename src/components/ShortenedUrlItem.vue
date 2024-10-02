@@ -1,24 +1,38 @@
 <template>
   <div class="container">
-    <div class="wrapper">
-      <a href="#" class="default-url">https://google.com</a>
+    <div class="wrapper" v-for="newUrlItem in newUrlItemsList" :key="newUrlItem.defaultUrl">
+      <a href="#" class="default-url">{{ newUrlItem.defaultUrl }}</a>
       <div class="shortened-url">
-        <a href="#" class="link">https://google.com</a>
+        <a href="#" class="link">{{ newUrlItem.shortenedUrl }}</a>
         <button class="copy-button">Copy</button>
-      </div>
-    </div>
-    <div class="wrapper">
-      <a href="#" class="default-url">https://google.com</a>
-      <div class="shortened-url">
-        <a href="#" class="link">https://google.com</a>
-        <button class="copy-button">Copy</button>
+        <button class="delete-button" @click="deleteUrl(newUrlItem.defaultUrl)">Delete</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapMutations, mapState } from 'vuex'
+
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    ...mapMutations('shortenUrl', ['deleteUrl'])
+  },
+  computed: {
+    ...mapState('shortenUrl', ['newUrlItemsList'])
+  },
+  watch: {
+    newUrlItemsList: {
+      handler(newValue) {
+        console.log(newValue)
+      },
+      deep: true
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -43,17 +57,28 @@ export default {}
     .default-url {
       text-decoration: none;
       outline: none;
+      color: #551a8b;
+      overflow: hidden;
+
+      &:hover {
+        color: #9f59e0;
+      }
     }
 
     .shortened-url {
       display: flex;
       align-items: center;
+      margin-left: 20px;
 
       .link {
         padding-right: 1.875rem;
         color: hsl(180, 66%, 49%);
         text-decoration: none;
         outline: none;
+
+        &:hover {
+          color: hsl(180, 55%, 67%);
+        }
       }
 
       .copy-button {
@@ -68,6 +93,22 @@ export default {}
 
         &:hover {
           background-color: hsl(180, 55%, 67%);
+        }
+      }
+
+      .delete-button {
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        margin-left: 20px;
+        padding: 4px 25px;
+        cursor: pointer;
+        background-color: #551a8b;
+        color: white;
+        outline: none;
+
+        &:hover {
+          background-color: #9f59e0;
         }
       }
     }
