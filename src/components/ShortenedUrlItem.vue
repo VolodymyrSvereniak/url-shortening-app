@@ -25,12 +25,12 @@ export default {
     ...mapState('shortenUrl', ['newUrlItemsList'])
   },
   watch: {
-    newUrlItemsList: {
-      handler(newValue) {
-        console.log(newValue);
-      },
-      deep: true
-    }
+    // newUrlItemsList: {
+    //   handler(newValue) {
+    //     console.log(newValue);
+    //   },
+    //   deep: true
+    // }
   }
 };
 </script>
@@ -59,6 +59,7 @@ export default {
       outline: none;
       color: #551a8b;
       overflow: hidden;
+      white-space: nowrap;
 
       &:hover {
         color: #9f59e0;

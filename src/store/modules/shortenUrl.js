@@ -12,8 +12,8 @@ export default {
     setInputValue(state, value) {
       state.inputValue = value;
     },
-    createNewUrl(state) {
-      const newUrlItem = { defaultUrl: state.inputValue, shortenedUrl: 'short' };
+    createNewUrl(state, value) {
+      const newUrlItem = { defaultUrl: value.url, shortenedUrl: value.shrtlnk };
 
       if (state.inputValue !== '') {
         state.newUrlItemsList.push(newUrlItem);
@@ -26,6 +26,30 @@ export default {
         (item) => item.defaultUrl !== defaultUrl
       );
     }
+  },
+  actions: {
+    async getUpdatedUrl({ commit, state }) {
+      const url = `https://shrtlnk.dev/api/v2/link`;
+
+      try {
+        const { data } = await axios.post(
+          url,
+          {
+            url: state.inputValue
+          },
+          {
+            headers: {
+              'api-key': '2xrXZpgtqlMrVUvbLTDFHLhpXLwxHbQmkmfSsPUhEupB0',
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+        console.log(data);
+        commit('createNewUrl', data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
 };
-

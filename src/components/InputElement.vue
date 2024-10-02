@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="form-container" @submit.prevent="createNewUrl">
+    <form class="form-container" @submit.prevent="getUpdatedUrl">
       <div class="wrapper">
         <input
           :value="inputValue"
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     ...mapMutations('shortenUrl', ['setInputValue', 'createNewUrl']),
+    ...mapActions('shortenUrl', ['getUpdatedUrl']),
     updateInput(event) {
       this.setInputValue(event.target.value);
     }
