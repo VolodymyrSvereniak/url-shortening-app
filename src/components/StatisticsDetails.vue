@@ -17,17 +17,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   computed: {
     ...mapState('statistics', ['statistics'])
   },
   created() {}
-}
+};
 </script>
 
 <style lang="scss" scoped>

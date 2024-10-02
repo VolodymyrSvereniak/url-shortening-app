@@ -1,7 +1,7 @@
-import Facebook from '../../assets/images/facebook.svg'
-import Twitter from '../../assets/images/twitter.svg'
-import Pinterest from '../../assets/images/pinterest.svg'
-import Instagram from '../../assets/images/instagram.svg'
+import Facebook from '../../assets/images/facebook.svg';
+import Twitter from '../../assets/images/twitter.svg';
+import Pinterest from '../../assets/images/pinterest.svg';
+import Instagram from '../../assets/images/instagram.svg';
 
 export default {
   namespaced: true,
@@ -22,6 +22,6 @@ export default {
         }
       ],
       icons: [Facebook, Twitter, Pinterest, Instagram]
-    }
+    };
   }
-}
+};

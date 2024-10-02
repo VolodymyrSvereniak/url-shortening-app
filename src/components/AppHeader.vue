@@ -32,14 +32,14 @@ export default {
   data() {
     return {
       isActive: 'SignUp'
-    }
+    };
   },
   methods: {
     setActive(currentButton) {
-      this.isActive = currentButton
+      this.isActive = currentButton;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

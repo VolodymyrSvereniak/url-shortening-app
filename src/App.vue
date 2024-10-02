@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader.vue'
-import StartedSection from '@/components/StartedSection.vue'
-import InputElement from '@/components/InputElement.vue'
-import StatisticsSection from '@/components/StatisticsSection.vue'
-import CtaSection from '@/components/CtaSection.vue'
-import AppFooter from '@/components/AppFooter.vue'
+import AppHeader from '@/components/AppHeader.vue';
+import StartedSection from '@/components/StartedSection.vue';
+import InputElement from '@/components/InputElement.vue';
+import StatisticsSection from '@/components/StatisticsSection.vue';
+import CtaSection from '@/components/CtaSection.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
 export default {
   components: {
@@ -28,7 +28,7 @@ export default {
     CtaSection,
     AppFooter
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

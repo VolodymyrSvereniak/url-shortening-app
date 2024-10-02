@@ -16,22 +16,22 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   methods: {
     ...mapMutations('shortenUrl', ['setInputValue', 'createNewUrl']),
     updateInput(event) {
-      this.setInputValue(event.target.value)
+      this.setInputValue(event.target.value);
     }
   },
   computed: {
-    ...mapState('shortenUrl', ['inputValue']),
-  },
-}
+    ...mapState('shortenUrl', ['inputValue'])
+  }
+};
 </script>
 
 <style lang="scss" scoped>

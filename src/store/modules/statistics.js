@@ -1,6 +1,6 @@
-import BrandRecognition from '@/assets/images/icon-brand-recognition.svg'
-import DetailedRecords from '@/assets/images/icon-detailed-records.svg'
-import FullyCustomizable from '@/assets/images/icon-fully-customizable.svg'
+import BrandRecognition from '@/assets/images/icon-brand-recognition.svg';
+import DetailedRecords from '@/assets/images/icon-detailed-records.svg';
+import FullyCustomizable from '@/assets/images/icon-fully-customizable.svg';
 
 export default {
   namespaced: true,
@@ -26,6 +26,6 @@ export default {
             'Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.'
         }
       ]
-    }
+    };
   }
-}
+};

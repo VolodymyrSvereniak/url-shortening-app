@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   methods: {
     ...mapMutations('shortenUrl', ['deleteUrl'])
@@ -27,12 +27,12 @@ export default {
   watch: {
     newUrlItemsList: {
       handler(newValue) {
-        console.log(newValue)
+        console.log(newValue);
       },
       deep: true
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

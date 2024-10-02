@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import StatisticsDetails from './StatisticsDetails.vue'
-import ShortenedUrlItem from './ShortenedUrlItem.vue'
+import StatisticsDetails from './StatisticsDetails.vue';
+import ShortenedUrlItem from './ShortenedUrlItem.vue';
 
 export default {
   components: {
     StatisticsDetails,
     ShortenedUrlItem
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
