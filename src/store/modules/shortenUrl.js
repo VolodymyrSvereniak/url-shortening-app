@@ -13,7 +13,7 @@ export default {
       state.inputValue = value;
     },
     createNewUrl(state, value) {
-      const newUrlItem = { defaultUrl: value.url, shortenedUrl: value.shrtlnk };
+      const newUrlItem = { defaultUrl: value.url, shortenedUrl: value.shrtlnk, isCopied: false };
 
       if (state.inputValue !== '') {
         state.newUrlItemsList.push(newUrlItem);
@@ -25,8 +25,16 @@ export default {
       state.newUrlItemsList = state.newUrlItemsList.filter(
         (item) => item.defaultUrl !== defaultUrl
       );
+    },
+    setAsCopied(state, urlItem) {
+      state.newUrlItemsList.forEach((item) => {
+        if (item.shortenedUrl === urlItem) {
+          item.isCopied = true;
+        }
+      });
     }
   },
+  getters: {},
   actions: {
     async getUpdatedUrl({ commit, state }) {
       const url = `https://shrtlnk.dev/api/v2/link`;

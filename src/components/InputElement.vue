@@ -23,7 +23,7 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations('shortenUrl', ['setInputValue', 'createNewUrl']),
+    ...mapMutations('shortenUrl', ['setInputValue']),
     ...mapActions('shortenUrl', ['getUpdatedUrl']),
     updateInput(event) {
       this.setInputValue(event.target.value);

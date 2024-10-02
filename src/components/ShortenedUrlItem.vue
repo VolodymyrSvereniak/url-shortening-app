@@ -1,10 +1,20 @@
 <template>
   <div class="container">
     <div class="wrapper" v-for="newUrlItem in newUrlItemsList" :key="newUrlItem.defaultUrl">
-      <a href="#" class="default-url">{{ newUrlItem.defaultUrl }}</a>
+      <a :href="newUrlItem.defaultUrl" target="_blank" class="default-url">{{
+        newUrlItem.defaultUrl
+      }}</a>
       <div class="shortened-url">
-        <a href="#" class="link">{{ newUrlItem.shortenedUrl }}</a>
-        <button class="copy-button">Copy</button>
+        <a :href="newUrlItem.shortenedUrl" target="_blank" class="link">{{
+          newUrlItem.shortenedUrl
+        }}</a>
+        <button
+          class="copy-button"
+          :style="{ backgroundColor: newUrlItem.isCopied ? 'hsl(260, 8%, 14%)' : '' }"
+          @click="copyNewUrl(newUrlItem.shortenedUrl)"
+        >
+          {{ isCopiedStatus(newUrlItem.isCopied) }}
+        </button>
         <button class="delete-button" @click="deleteUrl(newUrlItem.defaultUrl)">Delete</button>
       </div>
     </div>
@@ -19,18 +29,30 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations('shortenUrl', ['deleteUrl'])
+    ...mapMutations('shortenUrl', ['deleteUrl', 'setAsCopied']),
+    copyNewUrl(shortenedUrl) {
+      navigator.clipboard.writeText(shortenedUrl);
+
+      this.setAsCopied(shortenedUrl);
+    },
+    isCopiedStatus(copied) {
+      if (copied) {
+        return 'Copied!';
+      } else {
+        return 'Copy';
+      }
+    }
   },
   computed: {
     ...mapState('shortenUrl', ['newUrlItemsList'])
   },
   watch: {
-    // newUrlItemsList: {
-    //   handler(newValue) {
-    //     console.log(newValue);
-    //   },
-    //   deep: true
-    // }
+    newUrlItemsList: {
+      handler(newValue) {
+        console.log(newValue);
+      },
+      deep: true
+    }
   }
 };
 </script>
