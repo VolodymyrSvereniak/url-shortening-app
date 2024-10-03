@@ -1,23 +1,29 @@
 import axios from 'axios';
 
+
 export default {
   namespaced: true,
   state() {
     return {
       inputValue: '',
-      newUrlItemsList: []
+      isValidatedUrl: false,
+      newUrlItemsList: [{ defaultUrl: 'example', shortenedUrl: 'example', isCopied: false }]
     };
+  },
+  getters: {
+    validUrl() {
+      const UrlReg = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?(?:\?[^\s#]*)?(?:#[^\s]*)?$/;
+      return UrlReg
+    }
   },
   mutations: {
     setInputValue(state, value) {
-      state.inputValue = value;
+      state.inputValue = value.trim();
     },
     createNewUrl(state, value) {
       const newUrlItem = { defaultUrl: value.url, shortenedUrl: value.shrtlnk, isCopied: false };
 
-      if (state.inputValue !== '') {
-        state.newUrlItemsList.push(newUrlItem);
-      }
+      state.newUrlItemsList.push(newUrlItem);
 
       state.inputValue = '';
     },
@@ -34,27 +40,30 @@ export default {
       });
     }
   },
-  getters: {},
   actions: {
-    async getUpdatedUrl({ commit, state }) {
+    async getUpdatedUrl({ commit, state, getters }) {
       const url = `https://shrtlnk.dev/api/v2/link`;
 
       try {
-        const { data } = await axios.post(
-          url,
-          {
-            url: state.inputValue
-          },
-          {
-            headers: {
-              'api-key': '2xrXZpgtqlMrVUvbLTDFHLhpXLwxHbQmkmfSsPUhEupB0',
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
+        if (getters.validUrl.test(state.inputValue) && state.inputValue !== '') {
+          const { data } = await axios.post(
+            url,
+            {
+              url: state.inputValue
+            },
+            {
+              headers: {
+                'api-key': '2xrXZpgtqlMrVUvbLTDFHLhpXLwxHbQmkmfSsPUhEupB0',
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
             }
-          }
-        );
-        console.log(data);
-        commit('createNewUrl', data);
+          );
+          console.log(data);
+          commit('createNewUrl', data);
+        } else {
+          console.error('Invalid URL');
+        }
       } catch (error) {
         console.error(error);
       }

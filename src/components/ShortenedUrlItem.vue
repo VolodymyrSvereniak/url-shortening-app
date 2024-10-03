@@ -10,7 +10,7 @@
         }}</a>
         <button
           class="copy-button"
-          :style="{ backgroundColor: newUrlItem.isCopied ? 'hsl(260, 8%, 14%)' : '' }"
+          :class="{ copied: newUrlItem.isCopied }"
           @click="copyNewUrl(newUrlItem.shortenedUrl)"
         >
           {{ isCopiedStatus(newUrlItem.isCopied) }}
@@ -117,6 +117,11 @@ export default {
         &:hover {
           background-color: hsl(180, 55%, 67%);
         }
+      }
+
+      .copied {
+        background-color: hsl(257, 27%, 26%);
+        pointer-events: none;
       }
 
       .delete-button {

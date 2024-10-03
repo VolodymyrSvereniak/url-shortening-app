@@ -1,11 +1,12 @@
 <template>
   <div>
     <form class="form-container" @submit.prevent="getUpdatedUrl">
-      <div class="wrapper">
+      <div class="wrapper" :class="{ invalidMsg: !urlValidator && inputValue !== '' }">
         <input
           :value="inputValue"
           @input="updateInput"
           class="url-input"
+          :class="{ invalidValue: !urlValidator && inputValue !== '' }"
           type="text"
           placeholder="Shorten a link here..."
         />
@@ -16,21 +17,29 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex';
+import { mapGetters, mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   data() {
     return {};
   },
   methods: {
-    ...mapMutations('shortenUrl', ['setInputValue']),
+    ...mapMutations('shortenUrl', ['setInputValue', 'handleValidation']),
     ...mapActions('shortenUrl', ['getUpdatedUrl']),
     updateInput(event) {
       this.setInputValue(event.target.value);
     }
   },
   computed: {
-    ...mapState('shortenUrl', ['inputValue'])
+    ...mapState('shortenUrl', ['inputValue', 'isValidatedUrl']),
+    ...mapGetters('shortenUrl', ['validUrl']),
+    urlValidator() {
+      return this.validUrl.test(this.inputValue);
+    }
+  },
+  updated() {
+    console.log(this.inputValue);
+    console.log(this.urlValidator);
   }
 };
 </script>
@@ -55,6 +64,17 @@ export default {
     gap: 3%;
     align-items: center;
     width: 100%;
+    position: relative;
+
+    &.invalidMsg {
+      &::before {
+        content: 'Please add a link';
+        font-size: 14px;
+        color: hsl(0, 87%, 67%);
+        position: absolute;
+        bottom: 15%;
+      }
+    }
 
     .url-input {
       color: hsl(257, 7%, 63%);
@@ -63,6 +83,15 @@ export default {
       border: none;
       width: 80%;
       padding: 1.5%;
+    }
+
+    .invalidValue {
+      border: 4px solid hsl(0, 87%, 67%);
+
+      &::placeholder {
+        color: hsl(0, 87%, 67%);
+        opacity: 0.7;
+      }
     }
 
     .submit-button {
