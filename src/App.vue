@@ -2,11 +2,11 @@
   <div class="app">
     <div class="header-wrapper">
       <app-header />
-      <started-section />
+      <started-section :scrollToTarget="scrollToTarget" />
     </div>
-    <input-element />
+    <input-element ref="inputRef" />
     <statistics-section />
-    <cta-section />
+    <cta-section :scrollToTarget="scrollToTarget" />
     <app-footer />
   </div>
 </template>
@@ -18,6 +18,7 @@ import InputElement from '@/components/InputElement.vue';
 import StatisticsSection from '@/components/StatisticsSection.vue';
 import CtaSection from '@/components/CtaSection.vue';
 import AppFooter from '@/components/AppFooter.vue';
+import scrollIntoView from '@/features/scrollIntoView';
 
 export default {
   components: {
@@ -27,6 +28,11 @@ export default {
     StatisticsSection,
     CtaSection,
     AppFooter
+  },
+  methods: {
+    scrollToTarget() {
+      scrollIntoView(this.$refs.inputRef.$refs.inputRef);
+    }
   }
 };
 </script>

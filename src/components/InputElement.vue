@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="form-container" @submit.prevent="getUpdatedUrl">
+    <form class="form-container" @submit.prevent="getUpdatedUrl" ref="inputRef">
       <div class="wrapper" :class="{ invalidMsg: !urlValidator && inputValue !== '' }">
         <input
           :value="inputValue"
@@ -20,6 +20,11 @@
 import { mapGetters, mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
+  props: {
+    inputRef: {
+      type: HTMLElement
+    }
+  },
   data() {
     return {};
   },
@@ -31,14 +36,13 @@ export default {
     }
   },
   computed: {
-    ...mapState('shortenUrl', ['inputValue', 'isValidatedUrl']),
+    ...mapState('shortenUrl', ['inputValue', 'isValid']),
     ...mapGetters('shortenUrl', ['validUrl']),
     urlValidator() {
       return this.validUrl.test(this.inputValue);
     }
   },
   updated() {
-    console.log(this.inputValue);
     console.log(this.urlValidator);
   }
 };
@@ -48,11 +52,11 @@ export default {
 .form-container {
   display: flex;
   width: 80vw;
-  height: 9.375rem;
+  height: 150px;
   z-index: 111;
   position: relative;
   left: 10%;
-  bottom: -4.6875rem;
+  bottom: -75px;
   background-color: hsl(257, 27%, 26%);
   border-radius: 10px;
   background-image: url('../assets/images/bg-shorten-desktop.svg');
@@ -87,11 +91,6 @@ export default {
 
     .invalidValue {
       border: 4px solid hsl(0, 87%, 67%);
-
-      &::placeholder {
-        color: hsl(0, 87%, 67%);
-        opacity: 0.7;
-      }
     }
 
     .submit-button {

@@ -1,19 +1,18 @@
 import axios from 'axios';
 
-
 export default {
   namespaced: true,
   state() {
     return {
       inputValue: '',
-      isValidatedUrl: false,
       newUrlItemsList: [{ defaultUrl: 'example', shortenedUrl: 'example', isCopied: false }]
     };
   },
   getters: {
     validUrl() {
-      const UrlReg = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?(?:\?[^\s#]*)?(?:#[^\s]*)?$/;
-      return UrlReg
+      const UrlReg =
+        /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?(?:\?[^\s#]*)?(?:#[^\s]*)?$/;
+      return UrlReg;
     }
   },
   mutations: {
@@ -45,7 +44,7 @@ export default {
       const url = `https://shrtlnk.dev/api/v2/link`;
 
       try {
-        if (getters.validUrl.test(state.inputValue) && state.inputValue !== '') {
+        if (getters.validUrl.test(state.inputValue)) {
           const { data } = await axios.post(
             url,
             {

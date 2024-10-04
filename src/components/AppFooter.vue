@@ -1,7 +1,7 @@
 <template>
   <footer class="container">
     <h1 class="title">Shortly</h1>
-    <div class="links-wrapper" v-for="(footerLink, index) in linksList">
+    <div class="links-wrapper" v-for="footerLink in linksList">
       <ul class="links-list">
         <li class="links-title">{{ footerLink.title }}</li>
         <li class="links-items" v-for="link in footerLink.linksItems">

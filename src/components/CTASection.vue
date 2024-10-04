@@ -1,12 +1,22 @@
 <template>
   <div class="container">
     <h1>Boost your links today</h1>
-    <button class="submit-button">Get started</button>
+    <button class="submit-button" @click="scrollToTarget()">Get started</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    scrollToTarget: {
+      type: Function,
+      required: true
+    }
+  },
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style lang="scss" scoped>

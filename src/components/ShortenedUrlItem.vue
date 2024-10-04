@@ -107,6 +107,7 @@ export default {
       .copy-button {
         border: none;
         border-radius: 5px;
+        width: 120px;
         font-weight: 500;
         padding: 4px 25px;
         cursor: pointer;
@@ -127,6 +128,7 @@ export default {
       .delete-button {
         border: none;
         border-radius: 5px;
+        width: 120px;
         font-weight: 500;
         margin-left: 20px;
         padding: 4px 25px;

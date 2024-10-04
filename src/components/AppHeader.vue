@@ -65,6 +65,19 @@ export default {
 
         &:hover {
           color: black;
+
+          &::before {
+            content: "Sorry! That Page Doesn't Seem to Exist";
+            position: absolute;
+            font-size: 14px;
+            padding: 10px;
+            top: 100px;
+            width: 150px;
+            background-color: #eff1f7;
+            border-radius: 10px;
+            z-index: 111;
+            color: hsl(257, 7%, 63%);
+          }
         }
       }
     }

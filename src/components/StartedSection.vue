@@ -1,17 +1,23 @@
 <template>
-  <section class="container">
+  <section class="container" ref="started">
     <div class="wrapper">
       <h1 class="title">More than just shorter links</h1>
       <p class="description">
         Build your brand’s recognition and get detailed insights on how your links are performing.
       </p>
-      <button class="submit-button">Get Started</button>
+      <button @click="scrollToTarget()" class="submit-button">Get Started</button>
     </div>
   </section>
 </template>
 
 <script>
 export default {
+  props: {
+    scrollToTarget: {
+      type: Function,
+      required: true
+    }
+  },
   data() {
     return {};
   }
