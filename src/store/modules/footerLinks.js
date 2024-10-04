@@ -21,7 +21,12 @@ export default {
           linksItems: ['About', 'Our Team', 'Careers', 'Contact']
         }
       ],
-      icons: [Facebook, Twitter, Pinterest, Instagram]
+      icons: [
+        { link: 'https://uk-ua.facebook.com', icon: Facebook },
+        { link: 'https://x.com', icon: Twitter },
+        { link: 'https://www.pinterest.com', icon: Pinterest },
+        { link: 'https://www.instagram.com', icon: Instagram }
+      ]
     };
   }
 };

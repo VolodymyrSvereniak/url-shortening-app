@@ -12,7 +12,9 @@
     <div class="icons-wrapper">
       <ul class="icons-list" v-for="icon in icons">
         <li>
-          <img class="icon-item" :src="icon" :alt="icon" />
+          <a :href="icon.link" target="_blank">
+            <img class="icon-item" :src="icon.icon" :alt="icon.icon" />
+          </a>
         </li>
       </ul>
     </div>
@@ -66,9 +68,22 @@ export default {
         color: hsl(257, 7%, 63%);
         font-size: 14px;
         cursor: pointer;
+        position: relative;
 
         &:hover {
           color: hsl(180, 66%, 49%);
+
+          &::before {
+            content: "Sorry! That Page Doesn't Seem to Exist";
+            position: absolute;
+            padding: 10px;
+            bottom: 30px;
+            width: 150px;
+            background-color: hsl(255, 11%, 22%);
+            border-radius: 10px;
+            z-index: 111;
+            color: hsl(257, 7%, 63%);
+          }
         }
       }
     }
