@@ -45,6 +45,11 @@ export default {
     width: 80vw;
     height: 100vh;
     margin: 2.1875rem 4rem;
+
+    @media (max-width: 768px) {
+      max-width: 30vw;
+      margin: 19px 1.20rem;
+    }
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="statistics-container">
+  <div class="statistics-group">
     <div
       class="wrapper"
       v-for="(statistic, index) in statistics"
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.statistics-container {
+.statistics-group {
   display: flex;
   align-items: center;
   width: 80vw;

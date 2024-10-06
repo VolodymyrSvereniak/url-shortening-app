@@ -1,7 +1,7 @@
 <template>
-  <header class="header">
-    <h1>Shortly</h1>
-    <nav class="navbar">
+  <header class="header-container">
+    <h1 class="header-title">Shortly</h1>
+    <nav class="navbar-dekstop">
       <ul class="nav-group">
         <li class="nav-item">Features</li>
         <li class="nav-item">Pricing</li>
@@ -25,13 +25,20 @@
       </button>
     </div>
   </header>
+  <app-header-mobile :isActive="isActive" @setActive="setActive" />
 </template>
 
 <script>
+import AppHeaderMobile from './AppHeaderMobile.vue';
+
 export default {
+  components: {
+    AppHeaderMobile
+  },
   data() {
     return {
-      isActive: 'SignUp'
+      isActive: 'SignUp',
+      isMobileSize: true
     };
   },
   methods: {
@@ -43,12 +50,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
+.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .navbar {
+  .header-title {
+    &:hover {
+      cursor: pointer;
+      color: hsl(180, 66%, 49%);
+    }
+  }
+
+  .navbar-dekstop {
     flex: 1;
 
     .nav-group {
@@ -113,6 +127,10 @@ export default {
         }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 </style>

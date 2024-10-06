@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="statistics-container">
     <shortened-url-item />
     <div class="statistics-wrapper">
       <div class="statistics-info">
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.statistics-container {
   background-color: #eff1f7;
 
   .statistics-wrapper {
@@ -51,6 +51,13 @@ export default {
 
       .description {
         color: hsl(257, 7%, 63%);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      .statistics-wrapper {
       }
     }
   }

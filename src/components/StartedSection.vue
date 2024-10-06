@@ -30,6 +30,7 @@ export default {
   width: 100vw;
   height: 100vh;
   background-image: url('../assets/images/illustration-working.svg');
+  background-size: auto;
   background-repeat: no-repeat;
   background-position: 100% 30%;
 
@@ -62,6 +63,36 @@ export default {
 
       &:hover {
         background-color: hsl(180, 55%, 67%);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    background-size: 540px;
+    background-position: 0 0;
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 250px;
+      gap: 30px;
+      text-align: center;
+      flex-direction: column;
+      width: 90vw;
+      height: auto;
+
+      .title {
+        font-size: 45px;
+      }
+
+      .description {
+        width: 80vw;
+      }
+  
+      .submit-button {
+        margin: 0;
+        padding: 15px 45px;
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <footer class="container">
-    <h1 class="title">Shortly</h1>
+  <footer class="footer-container">
+    <h1 class="footer-title">Shortly</h1>
     <div class="links-wrapper" v-for="footerLink in linksList">
       <ul class="links-list">
         <li class="links-title">{{ footerLink.title }}</li>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.footer-container {
   display: flex;
   width: 100vw;
   height: 40vh;
@@ -44,7 +44,7 @@ export default {
   background-color: hsl(260, 8%, 14%);
   gap: 5%;
 
-  .title {
+  .footer-title {
     padding: 0 15% 0 10%;
   }
 
