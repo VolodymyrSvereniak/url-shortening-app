@@ -147,7 +147,7 @@ export default {
 
   @media (max-width: 768px) {
     .wrapper {
-      width: 90vw;
+      width: 90%;
       flex-direction: column;
       padding: 20px;
       flex: 1;
@@ -159,7 +159,8 @@ export default {
 
       .shortened-url {
         display: flex;
-        height: 130px;
+        width: 100%;
+        height: 150px;
         margin: 0;
         flex-direction: column;
         justify-content: space-between;
@@ -170,13 +171,15 @@ export default {
         }
 
         .copy-button {
-          width: 80vw;
+          width: 100%;
+          height: 5vh;
           cursor: default;
         }
 
         .delete-button {
           margin: 0;
-          width: 80vw;
+          height: 5vh;
+          width: 100%;
           cursor: default;
         }
       }

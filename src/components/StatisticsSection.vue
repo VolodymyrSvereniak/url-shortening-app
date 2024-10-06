@@ -56,8 +56,18 @@ export default {
   }
 
   @media (max-width: 768px) {
-    .container {
-      .statistics-wrapper {
+    .statistics-wrapper {
+      padding: 100px;
+
+      .statistics-info {
+        width: 90vw;
+        .title {
+          font-size: 30px;
+        }
+        
+        .description {
+         padding-bottom: 100px;
+        }
       }
     }
   }
