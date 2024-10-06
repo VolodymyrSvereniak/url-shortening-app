@@ -1,17 +1,18 @@
 <template>
   <div class="container">
     <div class="wrapper" v-for="newUrlItem in newUrlItemsList" :key="newUrlItem.defaultUrl">
-      <a :href="newUrlItem.defaultUrl" target="_blank" class="default-url">{{
+      <a class="default-url" :href="newUrlItem.defaultUrl" target="_blank">{{
         newUrlItem.defaultUrl
       }}</a>
       <div class="shortened-url">
-        <a :href="newUrlItem.shortenedUrl" target="_blank" class="link">{{
+        <a class="link" :href="newUrlItem.shortenedUrl" target="_blank">{{
           newUrlItem.shortenedUrl
         }}</a>
         <button
           class="copy-button"
           :class="{ copied: newUrlItem.isCopied }"
           @click="copyNewUrl(newUrlItem.shortenedUrl)"
+          @touchstart="copyNewUrl(newUrlItem.shortenedUrl)"
         >
           {{ isCopiedStatus(newUrlItem.isCopied) }}
         </button>
@@ -139,6 +140,44 @@ export default {
 
         &:hover {
           background-color: #9f59e0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      width: 90vw;
+      flex-direction: column;
+      padding: 20px;
+      flex: 1;
+
+      .default-url {
+        width: 100%;
+        border-bottom: 1px solid grey;
+      }
+
+      .shortened-url {
+        display: flex;
+        height: 130px;
+        margin: 0;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .link {
+          padding: 0;
+          width: 100%;
+        }
+
+        .copy-button {
+          width: 80vw;
+          cursor: default;
+        }
+
+        .delete-button {
+          margin: 0;
+          width: 80vw;
+          cursor: default;
         }
       }
     }

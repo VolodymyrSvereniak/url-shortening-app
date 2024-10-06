@@ -109,5 +109,45 @@ export default {
       }
     }
   }
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    left: 5%;
+    background-image: url('../assets/images/bg-shorten-mobile.svg');
+    padding: 0;
+    height: 200px;
+
+    .wrapper {
+      flex-direction: column;
+      justify-content: center;
+      gap: 25%;
+      padding: 30px;
+
+      &.invalidMsg {
+        &::before {
+          content: 'Please add a link';
+          font-size: 14px;
+          color: hsl(0, 87%, 67%);
+          position: absolute;
+          left: 8%;
+          bottom: 44%;
+        }
+      }
+
+      .url-input {
+        padding: 10px;
+        width: 100%;
+
+        &::placeholder {
+          opacity: 0.5;
+        }
+      }
+
+      .submit-button {
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
 }
 </style>
