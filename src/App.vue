@@ -6,7 +6,7 @@
     </div>
     <input-element ref="inputRef" />
     <statistics-section />
-    <cta-section :scrollToTarget="scrollToTarget" />
+    <c-t-a-section :scrollToTarget="scrollToTarget" />
     <app-footer />
   </div>
 </template>
@@ -16,7 +16,7 @@ import AppHeader from '@/components/AppHeader.vue';
 import StartedSection from '@/components/StartedSection.vue';
 import InputElement from '@/components/InputElement.vue';
 import StatisticsSection from '@/components/StatisticsSection.vue';
-import CtaSection from '@/components/CtaSection.vue';
+import CTASection from '@/components/CTASection.vue';
 import AppFooter from '@/components/AppFooter.vue';
 import scrollIntoView from '@/features/scrollIntoView';
 
@@ -26,7 +26,7 @@ export default {
     StartedSection,
     InputElement,
     StatisticsSection,
-    CtaSection,
+    CTASection,
     AppFooter
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
 
     @media (max-width: 768px) {
       max-width: 30vw;
-      margin: 19px 1.20rem;
+      margin: 19px 1.2rem;
     }
   }
 }

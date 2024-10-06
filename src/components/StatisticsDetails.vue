@@ -109,7 +109,7 @@ export default {
       &::before {
         content: '';
         position: absolute;
-        left: 50%;
+        left: 48.5%;
         top: 100%;
         width: 0;
         height: 52px;
@@ -118,7 +118,7 @@ export default {
       &::after {
         content: '';
         position: absolute;
-        left: 50%;
+        left: 48.5%;
         bottom: 117%;
         width: 0;
         height: 52px;

@@ -127,6 +127,10 @@ export default {
 
       .links-list {
         padding-bottom: 40px;
+
+        .links-items {
+          cursor: default;
+        }
       }
     }
 
@@ -140,6 +144,7 @@ export default {
 
         .icon-item {
           width: 30%;
+          cursor: default;
         }
       }
     }
