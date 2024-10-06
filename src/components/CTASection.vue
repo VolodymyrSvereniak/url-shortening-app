@@ -46,5 +46,13 @@ export default {
       background-color: hsl(180, 55%, 67%);
     }
   }
+
+  @media (max-width: 768px) {
+    background-image: url('../assets/images/bg-boost-mobile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 15px;
+  }
 }
 </style>

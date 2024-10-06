@@ -112,5 +112,37 @@ export default {
       }
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+
+    .footer-title {
+      padding: 0 0 40px 0;
+    }
+
+    .links-wrapper {
+      justify-content: center;
+
+      .links-list {
+        padding-bottom: 40px;
+      }
+    }
+
+    .icons-wrapper {
+      gap: 0;
+      width: 100%;
+      padding-bottom: 20px;
+
+      .icons-list {
+        width: 90%;
+
+        .icon-item {
+          width: 30%;
+        }
+      }
+    }
+  }
 }
 </style>
