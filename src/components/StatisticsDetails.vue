@@ -100,7 +100,7 @@ export default {
     color: hsl(257, 7%, 63%);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     flex-direction: column;
     gap: 100px;
     margin: 0;
@@ -109,7 +109,7 @@ export default {
       &::before {
         content: '';
         position: absolute;
-        left: 48.5%;
+        left: 50%;
         top: 100%;
         width: 0;
         height: 52px;

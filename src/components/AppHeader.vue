@@ -1,6 +1,6 @@
 <template>
   <header class="header-container">
-    <h1 class="header-title">Shortly</h1>
+    <h1 class="header-title" @click="setActive('')">Shortly</h1>
     <nav class="navbar-dekstop">
       <ul class="nav-group">
         <li class="nav-item">Features</li>
@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      isActive: 'SignUp',
+      isActive: '',
       isMobileSize: true
     };
   },
@@ -54,6 +54,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 80vw;
+  margin: 2.1875rem 4rem 0;
 
   .header-title {
     &:hover {

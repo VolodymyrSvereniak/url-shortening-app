@@ -61,10 +61,14 @@ export default {
 <style lang="scss" scoped>
 .header-mobile {
   .header-container {
-    display: flex;
+    display: none;
     width: 90vw;
     padding-bottom: 20px;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
   }
 
   .burger-button {
@@ -141,8 +145,9 @@ export default {
     }
   }
 
-  @media (min-width: 768px) {
-    display: none;
+  @media (max-width: 768px) {
+    max-width: 30vw;
+    margin: 19px 1.2rem;
   }
 }
 </style>

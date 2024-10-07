@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <section class="container">
     <h1>Boost your links today</h1>
-    <button class="submit-button" @click="scrollToTarget()">Get started</button>
-  </div>
+    <button class="cta-button" @click="scrollToTarget()">Get started</button>
+  </section>
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
   background-size: cover;
   background-color: hsl(257, 27%, 26%);
 
-  .submit-button {
+  .cta-button {
     border: none;
     margin-top: 20px;
     font-weight: 700;
