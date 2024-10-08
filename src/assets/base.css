@@ -3,17 +3,14 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-
 }
 
 *:not(h1, h2, h3) {
   font-size: 18px;
 }
 
-
 body {
   font-weight: normal;
   max-width: 1440px;
-  height: 100vh;
   overflow-x: hidden;
 }

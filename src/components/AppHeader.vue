@@ -41,23 +41,26 @@ export default {
     AppHeaderMobile
   },
   data() {
-    return {
-      isActive: ''
-    };
+    return {};
+  },
+  computed: {
+    isActive() {
+      return this.$store.state.isActive;
+    }
   },
   methods: {
     redirectToHome() {
-      this.isActive = '';
+      this.$store.commit('setAsActive', '');
 
       this.$router.push({ name: 'Home' });
     },
     redirectToLogin() {
-      this.isActive = 'Login';
+      this.$store.commit('setAsActive', 'Login');
 
       this.$router.push({ path: '/login' });
     },
     redirectToSignup() {
-      this.isActive = 'SignUp';
+      this.$store.commit('setAsActive', 'SignUp');
 
       this.$router.push({ path: '/signup' });
     }
