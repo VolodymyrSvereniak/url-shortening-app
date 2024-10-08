@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import PageDoesNotExistView from '@/views/PageDoesNotExistView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [{
-    path: '/',
-    name: 'Home',
-  }]
-
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: () => import('@/views/MainView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'PageDoesNotExist',
+      component: () => import('@/views/PageDoesNotExistView.vue')
+    }
+  ]
 });
 
 export default router;

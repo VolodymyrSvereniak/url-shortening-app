@@ -1,6 +1,6 @@
 <template>
   <header class="header-container">
-    <h1 class="header-title" @click="setActive('')">Shortly</h1>
+    <h1 class="header-title" @click="redirectToHome()">Shortly</h1>
     <nav class="navbar-dekstop">
       <ul class="nav-group">
         <li class="nav-item">Features</li>
@@ -10,14 +10,14 @@
     </nav>
     <div class="auth-group">
       <button
-        @click="setActive('Login')"
+        @click="redirectToLogin()"
         :class="{ active: isActive === 'Login' }"
         class="auth-button"
       >
         Login
       </button>
       <button
-        @click="setActive('SignUp')"
+        @click="redirectToSignup()"
         :class="{ active: isActive === 'SignUp' }"
         class="auth-button"
       >
@@ -25,7 +25,12 @@
       </button>
     </div>
   </header>
-  <app-header-mobile :isActive="isActive" @setActive="setActive" />
+  <app-header-mobile
+    :isActive="isActive"
+    @redirectToHome="redirectToHome"
+    @redirectToLogin="redirectToLogin"
+    @redirectToSignup="redirectToSignup"
+  />
 </template>
 
 <script>
@@ -37,13 +42,24 @@ export default {
   },
   data() {
     return {
-      isActive: '',
-      isMobileSize: true
+      isActive: ''
     };
   },
   methods: {
-    setActive(currentButton) {
-      this.isActive = currentButton;
+    redirectToHome() {
+      this.isActive = '';
+
+      this.$router.push({ name: 'Home' });
+    },
+    redirectToLogin() {
+      this.isActive = 'Login';
+
+      this.$router.push({ path: '/login' });
+    },
+    redirectToSignup() {
+      this.isActive = 'SignUp';
+
+      this.$router.push({ path: '/signup' });
     }
   }
 };

@@ -52,11 +52,11 @@ export default {
 .form-container {
   display: flex;
   width: 80vw;
-  height: 150px;
+  height: 152px;
   z-index: 111;
   position: relative;
   left: 10%;
-  bottom: -75px;
+  bottom: -77px;
   background-color: hsl(257, 27%, 26%);
   border-radius: 10px;
   background-image: url('../assets/images/bg-shorten-desktop.svg');

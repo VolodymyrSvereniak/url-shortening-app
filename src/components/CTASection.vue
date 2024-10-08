@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1>Boost your links today</h1>
+    <h1 class="cta">Boost your links today</h1>
     <button class="cta-button" @click="scrollToTarget()">Get started</button>
   </section>
 </template>
@@ -30,6 +30,10 @@ export default {
   background-image: url('../assets/images/bg-boost-desktop.svg');
   background-size: cover;
   background-color: hsl(257, 27%, 26%);
+
+  .cta {
+    font-size: 2em;
+  }
 
   .cta-button {
     border: none;

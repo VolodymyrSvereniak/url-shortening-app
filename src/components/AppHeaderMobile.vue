@@ -1,7 +1,7 @@
 <template>
   <div class="header-mobile">
     <div class="header-container">
-      <h1>Shortly</h1>
+      <h1 @click="redirectTo('redirectToHome')">Shortly</h1>
       <button
         :style="{ color: isMenuOpen ? 'hsl(180, 66%, 49%)' : '' }"
         class="burger-button"
@@ -21,14 +21,14 @@
       <hr class="middle-line" />
       <div class="auth-mobile">
         <button
-          @click="$emit('setActive', 'Login')"
+          @click="redirectTo('redirectToLogin')"
           :class="{ active: isActive === 'Login' }"
           class="auth-button"
         >
           Login
         </button>
         <button
-          @click="$emit('setActive', 'SignUp')"
+          @click="redirectTo('redirectToSignup')"
           :class="{ active: isActive === 'SignUp' }"
           class="auth-button"
         >
@@ -41,12 +41,18 @@
 
 <script>
 export default {
-  emits: ['setActive'],
+  emits: ['redirectToHome', 'redirectToLogin', 'redirectToSignup'],
   props: {
     isActive: {
       type: String
     },
-    setActive: {
+    redirectToHome: {
+      type: Function
+    },
+    redirectToLogin: {
+      type: Function
+    },
+    redirectToSignup: {
       type: Function
     }
   },
@@ -54,6 +60,11 @@ export default {
     return {
       isMenuOpen: false
     };
+  },
+  methods: {
+    redirectTo(path) {
+      this.$emit(path);
+    }
   }
 };
 </script>
