@@ -45,5 +45,17 @@ export default {
       background-color: hsl(258, 27%, 50%);
     }
   }
+
+  @media (max-width: 786px) {
+    margin: 0;
+    background-size: 90%;
+    background-position: 50% 0;
+    justify-content: flex-end;
+    text-align: center;
+
+    button {
+      align-self: center;
+    }
+  }
 }
 </style>
