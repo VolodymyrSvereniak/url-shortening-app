@@ -146,6 +146,7 @@ export default {
       .submit-button {
         padding: 10px;
         width: 100%;
+        cursor: default;
       }
     }
   }

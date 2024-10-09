@@ -107,6 +107,14 @@ export default {
   @media (max-width: 768px) {
     max-width: 30vw;
     margin: 19px 1.2rem;
+
+    .wrapper {
+      .about {
+        .cta-button {
+          cursor: default;
+        }
+      }
+    }
   }
 }
 </style>

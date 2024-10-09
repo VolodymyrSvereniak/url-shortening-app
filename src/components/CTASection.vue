@@ -57,6 +57,10 @@ export default {
     background-repeat: no-repeat;
     text-align: center;
     font-size: 15px;
+
+    .cta-button {
+      cursor: default;
+    }
   }
 }
 </style>

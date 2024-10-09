@@ -12,7 +12,7 @@
           class="copy-button"
           :class="{ copied: newUrlItem.isCopied }"
           @click="copyNewUrl(newUrlItem.shortenedUrl)"
-          @touchstart="copyNewUrl(newUrlItem.shortenedUrl)"
+          @touchstart.passive="copyNewUrl(newUrlItem.shortenedUrl)"
         >
           {{ isCopiedStatus(newUrlItem.isCopied) }}
         </button>
@@ -30,7 +30,7 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations('shortenUrl', ['deleteUrl', 'setAsCopied']),
+    ...mapMutations('shortenUrl', ['deleteUrl', 'setAsCopied', 'setUrlItemsFromLS']),
     copyNewUrl(shortenedUrl) {
       navigator.clipboard.writeText(shortenedUrl);
 
@@ -50,9 +50,16 @@ export default {
   watch: {
     newUrlItemsList: {
       handler(newValue) {
+        localStorage.setItem('URL-items', JSON.stringify(this.newUrlItemsList));
         console.log(newValue);
       },
       deep: true
+    }
+  },
+  created() {
+    const urlItems = localStorage.getItem('URL-items');
+    if (urlItems) {
+      this.setUrlItemsFromLS(JSON.parse(urlItems));
     }
   }
 };

@@ -26,6 +26,11 @@ export default {
 
       state.inputValue = '';
     },
+    setUrlItemsFromLS(state, value) {
+      if (value) {
+        state.newUrlItemsList = value;
+      }
+    },
     deleteUrl(state, defaultUrl) {
       state.newUrlItemsList = state.newUrlItemsList.filter(
         (item) => item.defaultUrl !== defaultUrl
