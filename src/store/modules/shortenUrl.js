@@ -20,7 +20,11 @@ export default {
       state.inputValue = value.trim();
     },
     createNewUrl(state, value) {
-      const newUrlItem = { defaultUrl: value.url, shortenedUrl: value.shrtlnk, isCopied: false };
+      const newUrlItem = {
+        defaultUrl: state.inputValue,
+        shortenedUrl: value.short_url,
+        isCopied: false
+      };
 
       state.newUrlItemsList.push(newUrlItem);
 
@@ -46,7 +50,7 @@ export default {
   },
   actions: {
     async getUpdatedUrl({ commit, state, getters }) {
-      const url = `https://shrtlnk.dev/api/v2/link`;
+      const url = `https://spoo.me/`;
 
       try {
         if (getters.validUrl.test(state.inputValue)) {
@@ -57,9 +61,8 @@ export default {
             },
             {
               headers: {
-                'api-key': '2xrXZpgtqlMrVUvbLTDFHLhpXLwxHbQmkmfSsPUhEupB0',
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
+                'content-type': 'application/x-www-form-urlencoded',
+                Accept: 'application/json'
               }
             }
           );

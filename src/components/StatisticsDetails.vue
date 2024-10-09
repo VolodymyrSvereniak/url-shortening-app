@@ -64,7 +64,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 340px;
+    width: auto;
     height: auto;
     padding: 50px 30px 30px;
     background-color: white;
@@ -72,14 +72,11 @@ export default {
     position: relative;
 
     .image-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative;
 
       .image {
         position: absolute;
-        left: 0;
-        bottom: 10px;
+        left: 10%;
+        bottom: 80%;
         width: 80px;
         height: 80px;
         border: 1px solid;
