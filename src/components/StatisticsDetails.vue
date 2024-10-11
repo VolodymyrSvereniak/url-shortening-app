@@ -5,7 +5,7 @@
       v-for="(statistic, index) in statistics"
       :key="statistic.title"
       :class="index === 1 ? 'middle-block' : ''"
-      :style="{ marginTop: !isDekstopVersion ? 60 * index + 'px' : '' }"
+      :style="{ marginTop: !isMobileSize ? 60 * index + 'px' : '' }"
     >
       <div class="image-wrapper">
         <img class="image" :src="statistic.img" :alt="statistic.img" />
@@ -21,15 +21,26 @@ import { mapState } from 'vuex';
 
 export default {
   data() {
-    return {};
+    return {
+      isMobileSize: null
+    };
+  },
+  methods: {
+    isMobileVersion(event) {
+      this.isMobileSize = event.matches;
+    }
   },
   computed: {
     ...mapState('statistics', ['statistics']),
-    isDekstopVersion() {
-      return window.matchMedia('(max-width: 768px)').matches;
+    matchSize() {
+      return window.matchMedia('(max-width: 900px)');
     }
   },
-  created() {}
+  mounted() {
+    this.isMobileVersion(this.matchSize);
+
+    this.matchSize.addEventListener('change', this.isMobileVersion);
+  }
 };
 </script>
 
@@ -38,16 +49,18 @@ export default {
   display: flex;
   align-items: center;
   width: 80vw;
-  gap: 10%;
+  gap: 5vw;
 
   .middle-block {
+    position: relative;
     &::before {
       content: '';
       position: absolute;
       right: 100%;
       bottom: 60%;
-      width: 35%;
-      border: 4px solid #2ccfd0;
+      width: 21.5%;
+      color: red;
+      border: 0.25rem solid #2ccfd0;
     }
 
     &::after {
@@ -56,7 +69,7 @@ export default {
       left: 100%;
       bottom: 60%;
       width: 35%;
-      border: 4px solid #2ccfd0;
+      border: 0.25rem solid #2ccfd0;
     }
   }
 
@@ -64,25 +77,27 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
+    width: calc(100% / 3);
     height: auto;
-    padding: 50px 30px 30px;
+    padding: 3.125rem 1.25rem 1.875rem;
     background-color: white;
     border-radius: 5px;
     position: relative;
 
     .image-wrapper {
+      position: absolute;
+      left: 2vw;
+      width: 4.5rem;
+      top: 0;
+      transform: translate(20%, -50%);
+      height: 80px;
+      border-radius: 50%;
+      background-color: hsl(257, 27%, 26%);
+      padding: 0.9375rem;
 
       .image {
-        position: absolute;
-        left: 10%;
-        bottom: 80%;
-        width: 80px;
-        height: 80px;
-        border: 1px solid;
-        border-radius: 50%;
-        background-color: hsl(257, 27%, 26%);
-        padding: 15px;
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -97,9 +112,9 @@ export default {
     color: hsl(257, 7%, 63%);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 900px) {
     flex-direction: column;
-    gap: 100px;
+    gap: 10vh;
     margin: 0;
 
     .middle-block {
@@ -109,20 +124,21 @@ export default {
         left: 50%;
         top: 100%;
         width: 0;
-        height: 52px;
+        height: 10vh;
       }
 
       &::after {
         content: '';
         position: absolute;
-        left: 48.5%;
-        bottom: 117%;
+        left: 50%;
+        bottom: 100%;
         width: 0;
-        height: 52px;
+        height: 10vh;
       }
     }
 
     .wrapper {
+      width: 80vw;
       text-align: center;
 
       .title {
@@ -130,9 +146,8 @@ export default {
       }
 
       .image-wrapper {
-        .image {
-          left: 25.2vw;
-        }
+        z-index: 111;
+        left: calc(50% - 3rem);
       }
     }
   }

@@ -1,22 +1,22 @@
 <template>
   <div class="container">
-    <div class="wrapper" v-for="newUrlItem in newUrlItemsList" :key="newUrlItem.defaultUrl">
-      <a class="default-url" :href="newUrlItem.defaultUrl" target="_blank">{{
-        newUrlItem.defaultUrl
-      }}</a>
+    <div
+      class="wrapper"
+      v-for="{ defaultUrl, shortenedUrl, isCopied } in newUrlItemsList"
+      :key="defaultUrl"
+    >
+      <a class="default-url" :href="defaultUrl" target="_blank">{{ defaultUrl }}</a>
       <div class="shortened-url">
-        <a class="link" :href="newUrlItem.shortenedUrl" target="_blank">{{
-          newUrlItem.shortenedUrl
-        }}</a>
+        <a class="link" :href="shortenedUrl" target="_blank">{{ shortenedUrl }}</a>
         <button
           class="copy-button"
-          :class="{ copied: newUrlItem.isCopied }"
-          @click="copyNewUrl(newUrlItem.shortenedUrl)"
-          @touchstart.passive="copyNewUrl(newUrlItem.shortenedUrl)"
+          :class="{ copied: isCopied }"
+          @click="copyNewUrl(shortenedUrl)"
+          @touchstart.passive="copyNewUrl(shortenedUrl)"
         >
-          {{ isCopiedStatus(newUrlItem.isCopied) }}
+          {{ isCopiedStatus(isCopied) }}
         </button>
-        <button class="delete-button" @click="deleteUrl(newUrlItem.defaultUrl)">Delete</button>
+        <button class="delete-button" @click="deleteUrl(defaultUrl)">Delete</button>
       </div>
     </div>
   </div>

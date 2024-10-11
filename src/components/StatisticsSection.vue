@@ -35,7 +35,7 @@ export default {
     align-items: center;
     gap: 10px;
 
-    padding: 120px;
+    padding-block: 120px;
 
     .statistics-info {
       display: flex;
@@ -64,9 +64,9 @@ export default {
         .title {
           font-size: 30px;
         }
-        
+
         .description {
-         padding-bottom: 100px;
+          padding-bottom: 100px;
         }
       }
     }
