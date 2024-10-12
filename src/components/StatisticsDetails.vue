@@ -52,7 +52,6 @@ export default {
   gap: 5vw;
 
   .middle-block {
-    position: relative;
     &::before {
       content: '';
       position: absolute;
@@ -108,7 +107,7 @@ export default {
   }
 
   .description {
-    font-size: 14px;
+    font-size: 17px;
     color: hsl(257, 7%, 63%);
   }
 
@@ -147,7 +146,7 @@ export default {
 
       .image-wrapper {
         z-index: 111;
-        left: calc(50% - 2.9675rem);
+        left: calc(50% - 2.9rem);
       }
     }
   }

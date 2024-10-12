@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <main>
     <started-section :scrollToTarget="scrollToTarget" />
     <input-element ref="inputRef" />
     <statistics-section />
     <c-t-a-section :scrollToTarget="scrollToTarget" />
     <app-footer />
-  </div>
+  </main>
 </template>
 
 <script>

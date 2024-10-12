@@ -1,7 +1,7 @@
 <template>
   <div>
     <form class="form-container" @submit.prevent="getUpdatedUrl" ref="inputRef">
-      <div class="wrapper" :class="{ invalidMsg: !urlValidator && inputValue !== '' }">
+      <div class="wrapper">
         <input
           :value="inputValue"
           @input="updateInput"
@@ -10,6 +10,7 @@
           type="text"
           placeholder="Shorten a link here..."
         />
+        <p class="invalidError" v-if="!urlValidator && inputValue !== ''">Please add a link</p>
         <button class="submit-button" type="submit">Shorten It!</button>
       </div>
     </form>
@@ -70,14 +71,11 @@ export default {
     width: 100%;
     position: relative;
 
-    &.invalidMsg {
-      &::before {
-        content: 'Please add a link';
-        font-size: 14px;
-        color: hsl(0, 87%, 67%);
-        position: absolute;
-        bottom: 15%;
-      }
+    .invalidError {
+      position: absolute;
+      top: calc(100% - 2.2rem);
+      font-size: 0.875rem;
+      color: hsl(0, 87%, 67%);
     }
 
     .url-input {
@@ -123,15 +121,9 @@ export default {
       gap: 25%;
       padding: 30px;
 
-      &.invalidMsg {
-        &::before {
-          content: 'Please add a link';
-          font-size: 14px;
-          color: hsl(0, 87%, 67%);
-          position: absolute;
-          left: 8%;
-          bottom: 44%;
-        }
+      .invalidError {
+        left: 1.9rem;
+        top: 45%;
       }
 
       .url-input {
