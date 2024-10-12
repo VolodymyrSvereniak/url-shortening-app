@@ -147,7 +147,7 @@ export default {
 
       .image-wrapper {
         z-index: 111;
-        left: calc(50% - 3rem);
+        left: calc(50% - 2.9675rem);
       }
     }
   }

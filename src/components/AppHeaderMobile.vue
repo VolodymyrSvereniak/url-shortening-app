@@ -64,7 +64,22 @@ export default {
   methods: {
     redirectTo(path) {
       this.$emit(path);
+    },
+    isMobileVersion(state) {
+      if (this.isMenuOpen && state) {
+        this.isMenuOpen = false;
+      }
     }
+  },
+  computed: {
+    matchSize() {
+      return window.matchMedia('(max-width: 768px)');
+    }
+  },
+  mounted() {
+    this.isMobileVersion(this.matchSize.matches);
+
+    this.matchSize.addEventListener('change', this.isMobileVersion);
   }
 };
 </script>
