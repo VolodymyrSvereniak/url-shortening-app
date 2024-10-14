@@ -102,6 +102,8 @@ export default {
       .icon-item {
         filter: invert(1);
         width: 100%;
+        min-width: 25px;
+
         height: auto;
         cursor: pointer;
 

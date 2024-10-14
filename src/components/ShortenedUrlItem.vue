@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div
+  <TransitionGroup class="container" name="list" tag="ul">
+    <li
       class="wrapper"
       v-for="{ defaultUrl, shortenedUrl, isCopied } in newUrlItemsList"
       :key="defaultUrl"
@@ -18,8 +18,8 @@
         </button>
         <button class="delete-button" @click="deleteUrl(defaultUrl)">Delete</button>
       </div>
-    </div>
-  </div>
+    </li>
+  </TransitionGroup>
 </template>
 
 <script>
@@ -66,6 +66,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -179,13 +189,13 @@ export default {
 
         .copy-button {
           width: 100%;
-          height: 5vh;
+          height: 30%;
           cursor: default;
         }
 
         .delete-button {
           margin: 0;
-          height: 5vh;
+          height: 30%;
           width: 100%;
           cursor: default;
         }

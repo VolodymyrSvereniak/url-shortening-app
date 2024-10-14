@@ -40,6 +40,9 @@ export default {
     this.isMobileVersion(this.matchSize);
 
     this.matchSize.addEventListener('change', this.isMobileVersion);
+  },
+  unmounted() {
+    this.matchSize.removeEventListener('change', this.isMobileVersion);
   }
 };
 </script>

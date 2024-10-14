@@ -80,6 +80,9 @@ export default {
     this.isMobileVersion(this.matchSize.matches);
 
     this.matchSize.addEventListener('change', this.isMobileVersion);
+  },
+  unmounted() {
+    this.matchSize.removeEventListener('change', this.isMobileVersion);
   }
 };
 </script>
@@ -113,7 +116,7 @@ export default {
     align-items: center;
     border: 1px solid black;
     background-color: hsl(257, 27%, 26%);
-    width: 90%;
+    width: calc(100% - 2.4rem);
     height: 46vh;
     z-index: 222;
     border-radius: 10px;
