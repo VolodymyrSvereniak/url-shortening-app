@@ -46,6 +46,11 @@ export default {
           item.isCopied = true;
         }
       });
+    },
+    resetCopied(state) {
+      state.newUrlItemsList.forEach((item) => {
+        item.isCopied = false;
+      });
     }
   },
   actions: {
