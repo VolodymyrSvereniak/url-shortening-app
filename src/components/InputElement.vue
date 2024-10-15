@@ -84,7 +84,7 @@ export default {
       outline: none;
       border: none;
       width: 80%;
-      padding: 1.5%;
+      padding: 1.5% 1.5% 1.5% 3%;
     }
 
     .invalidValue {

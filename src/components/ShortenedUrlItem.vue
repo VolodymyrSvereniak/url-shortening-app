@@ -30,7 +30,7 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations('shortenUrl', ['deleteUrl', 'setAsCopied', 'setUrlItemsFromLS']),
+    ...mapMutations('shortenUrl', ['deleteUrl', 'setAsCopied', 'setUrlItemsFromLS', 'resetCopied']),
     copyNewUrl(shortenedUrl) {
       navigator.clipboard.writeText(shortenedUrl);
 
@@ -61,6 +61,9 @@ export default {
     if (urlItems) {
       this.setUrlItemsFromLS(JSON.parse(urlItems));
     }
+  },
+  mounted() {
+    this.resetCopied();
   }
 };
 </script>
